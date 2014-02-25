@@ -1,0 +1,32 @@
+rotation matrix:
+ndarray: 
+[[ 0. -0. -1.  0.]
+ [ 1.  0.  0.  0.]
+ [ 0. -1.  0.  0.]
+ [ 0.  0.  0.  1.]]
+ 
+ resmat
+ ndarray: 
+ [[ 0.977  0.     0.     0.   ]
+ [ 0.     0.977  0.     0.   ]
+ [ 0.     0.     5.     0.   ]
+ [ 0.     0.     0.     1.   ]]
+
+ np.dot(rotmat, resmat)
+ [[ 0.    -0.    -5.     0.   ]
+ [ 0.977  0.     0.     0.   ]
+ [ 0.    -0.977  0.001  0.   ]
+ [ 0.     0.     0.     1.   ]]
+ Before any axis reformantting:
+ ndarray: 
+[[   0.      -0.      -5.      39.253]
+ [   0.977    0.       0.    -139.565]
+ [   0.      -0.977    0.001  133.356]
+ [   0.       0.       0.       1.   ]]
+Patient to Tailarach matrix:
+ndarray: 
+[[  -1.    0.    0.  255.]
+ [   0.   -1.    0.  255.]
+ [   0.    0.    1.    0.]
+ [   0.    0.    0.    1.]] 
+ Changed the order of product in code and it now seems to work.

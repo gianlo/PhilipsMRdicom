@@ -1,0 +1,56 @@
+PATIENT_TO_TAL_MAT = 
+[[-1.  0.  0.  0.]
+ [ 0. -1.  0.  0.]
+ [ 0.  0.  1.  0.]
+ [ 0.  0.  0.  1.]]
+orim computed at line 358:
+d0 = ndarray: [ 0.  1.  0.]
+d1 = ndarray: [-0.  0. -1.]
+d2 = ndarray: [-1.  0.  0.]
+orim = ndarray: 
+[[ 0. -0. -1.  0.]
+ [ 1.  0.  0.  0.]
+ [ 0. -1.  0.  0.]
+ [ 0.  0.  0.  1.]]
+ resm computed at line 361:
+resm = np.diag(map(float,[self.PixelSpacing[0], self.PixelSpacing[1],
+                            self.SpacingBetweenSlices, 1.]))
+     = ndarray:
+[[ 0.977  0.     0.     0.   ]
+ [ 0.     0.977  0.     0.   ]
+ [ 0.     0.     5.     0.   ]
+ [ 0.     0.     0.     1.   ]]                           
+ans first computed at line 364:
+ans = np.dot(orim, resm)
+= ndarray: 
+[[ 0.    -0.    -5.     0.   ]
+ [ 0.977  0.     0.     0.   ]
+ [ 0.    -0.977  0.001  0.   ]
+ [ 0.     0.     0.     1.   ]]
+Get FOV position line 367:
+ans[:3, 3] = np.array(self.ImagePositionPatient)
+and get:
+Before any axis reformatting the affine is:
+ans = 
+[[   0.      -0.      -5.      39.253]
+ [   0.977    0.       0.    -139.565]
+ [   0.      -0.977    0.001  133.356]
+ [   0.       0.       0.       1.   ]]
+ then ans = np.dot(PATIENT_TO_TAL_MAT, ans)
+ ans =
+[[   0.       0.       5.     -39.253]
+ [  -0.977    0.       0.     139.565]
+ [   0.      -0.977    0.001  133.356]
+ [   0.       0.       0.       1.   ]] 
+ Then finds a convention_reversals matrix mat:
+ mat = 
+ [[-1.  0.  0.  0.]
+ [ 0. -1.  0.  0.]
+ [ 0.  0. -1.  0.]
+ [ 0.  0.  0.  1.]]
+ And ans = np.dot(ans, mat):
+ ans =
+ [[   0.      -0.      -5.     -39.253]
+ [   0.977    0.       0.     139.565]
+ [   0.       0.977   -0.001  133.356]
+ [   0.       0.       0.       1.   ]]

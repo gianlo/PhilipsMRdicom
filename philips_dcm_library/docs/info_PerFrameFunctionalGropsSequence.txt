@@ -1,0 +1,77 @@
+>>> df[TAG_PER_FRAME_FUNCTIONAL_GROUPS_SEQUENCE][0]
+(0018, 0000) Group Length                        UL: 218
+(0018, 9114)  MR Echo Sequence   1 item(s) ---- 
+   (0018, 0000) Group Length                        UL: 16
+   (0018, 9082) Effective Echo Time                 FD: 50.0
+   ---------
+(0018, 9152)  MR Metabolite Map Sequence   1 item(s) ---- 
+   (0018, 0000) Group Length                        UL: 14
+   (0018, 9080) Metabolite Map Description          ST: 'WATER'
+   ---------
+(0018, 9226)  MR Image Frame Type Sequence   1 item(s) ---- 
+   (0008, 0000) Group Length                        UL: 104
+   (0008, 9007) Frame Type                          CS: ['ORIGINAL', 'PRIMARY', 'T2', 'NONE']
+   (0008, 9205) Pixel Presentation                  CS: 'MONOCHROME'
+   (0008, 9206) Volumetric Properties               CS: 'VOLUME'
+   (0008, 9207) Volume Based Calculation Technique  CS: 'NONE'
+   (0008, 9208) Complex Image Component             CS: 'MAGNITUDE'
+   (0008, 9209) Acquisition Contrast                CS: 'T2'
+   ---------
+(0020, 0000) Group Length                        UL: 392
+(0020, 9111)  Frame Content Sequence   1 item(s) ---- 
+   (0018, 0000) Group Length                        UL: 70
+   (0018, 9074) Frame Acquisition DateTime          DT: '20130117122412.98'
+   (0018, 9151) Frame Reference DateTime            DT: '20130117122412.98000'
+   (0018, 9220) Frame Acquisition Duration          FD: 44000.0
+   (0020, 0000) Group Length                        UL: 58
+   (0020, 9056) Stack ID                            SH: '1'
+   (0020, 9057) In-Stack Position Number            UL: 1
+   (0020, 9128) Temporal Position Index             UL: 1
+   (0020, 9157) Dimension Index Values              UL: [1, 1, 0, 1]
+   ---------
+(0020, 9113)  Plane Position Sequence   1 item(s) ---- 
+   (0020, 0000) Group Length                        UL: 58
+   (0020, 0032) Image Position (Patient)            DS: ['-188.62675714492', '-188.45364713668', '-18.500642776489']
+   ---------
+(0020, 9116)  Plane Orientation Sequence   1 item(s) ---- 
+   (0020, 0000) Group Length                        UL: 110
+   (0020, 0037) Image Orientation (Patient)         DS: ['0.96642947196960', '-0.1071179658174', '0.23353755474090', '0.25692865252494', '0.40755248069763', '-0.8762925267219']
+   ---------
+(0028, 0000) Group Length                        UL: 194
+(0028, 9110)  Pixel Measures Sequence   1 item(s) ---- 
+   (0018, 0000) Group Length                        UL: 12
+   (0018, 0050) Slice Thickness                     DS: '4.5'
+   (0028, 0000) Group Length                        UL: 18
+   (0028, 0030) Pixel Spacing                       DS: ['1.25', '1.25']
+   ---------
+(0028, 9132)  Frame VOI LUT Sequence   1 item(s) ---- 
+   (0028, 0000) Group Length                        UL: 24
+   (0028, 1050) Window Center                       DS: '1070'
+   (0028, 1051) Window Width                        DS: '1860'
+   ---------
+(0028, 9145)  Pixel Value Transformation Sequence   1 item(s) ---- 
+   (0028, 0000) Group Length                        UL: 44
+   (0028, 1052) Rescale Intercept                   DS: '0'
+   (0028, 1053) Rescale Slope                       DS: '28.6647130647130'
+   (0028, 1054) Rescale Type                        LO: 'US'
+   ---------
+(0040, 0000) Group Length                        UL: 214
+(0040, 9096)  Real World Value Mapping Sequence   1 item(s) ---- 
+   (0028, 0000) Group Length                        UL: 40
+   (0028, 3003) LUT Explanation                     LO: 'Philips Real World Value Mapping'
+   (0040, 0000) Group Length                        UL: 134
+   (0040, 08ea)  Measurement Units Code Sequence   1 item(s) ---- 
+      (0008, 0000) Group Length                        UL: 38
+      (0008, 0100) Code Value                          SH: '1'
+      (0008, 0102) Coding Scheme Designator            SH: 'UCUM'
+      (0008, 0104) Code Meaning                        LO: 'no units'
+      ---------
+   (0040, 9210) LUT Label                           SH: 'Philips'
+   (0040, 9211) Real World Value Last Value Mapped  US or SS: '\xff\x0f'
+   (0040, 9216) Real World Value First Value Mapped US or SS: '\x00\x00'
+   (0040, 9224) Real World Value Intercept          FD: 0.0
+   (0040, 9225) Real World Value Slope              FD: 28.664713064713066
+   ---------
+(2005, 0000) Private Creator                     OB: '\xec\x03\x00\x00'
+(2005, 0014) Private tag data                    OB: Array of 26 bytes
+(2005, 140f) Private tag data                    OB: Array of 962 bytes
