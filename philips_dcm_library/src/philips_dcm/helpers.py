@@ -34,6 +34,16 @@ METADATA_DESCRIPTION ="""#DICOM metadata in flat txt-format
 #Frame specific tags are for example 'EffectiveEchoTime'
 """
 
+ANONYMISE_FIELDS = set(
+('PatientName',
+'PatientID',
+'PatientBirthDate', 
+'PatientSex',
+'OperatorsName',
+'RequestingPhysician',
+'ScheduledPerformingPhysicianName',
+'ReferringPhysicianName',))
+
 #===============================================================================
 # FUNCTIONS
 #===============================================================================
@@ -93,7 +103,7 @@ def get_shared_functional_group_sequence_repetion_time(SharedFunctionalGroupsSeq
 #    logging.debug("SharedFunctionalGroupsSequence %d items"%len(df.SharedFunctionalGroupsSequence))
     return SharedFunctionalGroupsSequence.MRTimingAndRelatedParametersSequence[0].RepetitionTime
 
-def dicomobj_to_str(seq, level=0, prefix=None, only_non_private=True):
+def dicomobj_to_str(seq, level=0, prefix=None, only_non_private=True, anonymise=True):
     def tag_to_name(atag):
         try:
             return dicom.datadict.DicomDictionary[atag][-1]
@@ -105,11 +115,15 @@ def dicomobj_to_str(seq, level=0, prefix=None, only_non_private=True):
         return s
     strings = []
     for data_element in seq:
+        name = tag_to_name(data_element.tag)
+        if anonymise and name in ANONYMISE_FIELDS:
+            continue
         if data_element.VR == "SQ":
+            #this is a sequence, use its name as the start of the fields contained
             if only_non_private and data_element.tag in dicom.datadict.DicomDictionary:   # a sequence
                 #skip private fields
                 continue
-            name = tag_to_name(data_element.tag)
+            #name = tag_to_name(data_element.tag)
             for indx, dataset in enumerate(data_element.value):
                 if prefix is None:
                     nprefix = name + '[%d].'%(indx+1)
